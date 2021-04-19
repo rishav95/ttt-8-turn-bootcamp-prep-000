@@ -16,7 +16,7 @@ end
 def valid_move? board, index
   val = board[index]
 
-  if (val == "" || val == " " || val == nil)
+  if ((val == "" || val == " " || val == nil) && (index >= 0 && index <= 8))
     return true
   else 
     return false
@@ -30,7 +30,7 @@ end
 def turn board
   loop do 
     puts "Please enter 1-9:"
-  inp = gets
+  inp = Integer(gets) rescue nil
   index = input_to_index inp
   
   if valid_move? board, index
